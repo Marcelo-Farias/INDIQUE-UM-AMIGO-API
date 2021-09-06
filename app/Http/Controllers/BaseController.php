@@ -48,7 +48,7 @@ abstract class BaseController extends Controller
 
         // Verificando se o  id  informado existe na tabela (statusDaIndicacao).
         if (is_null($statusDaIndicacao)){
-            return response()->json(['erro'=>'Recurso não encontrado.'],404);
+            return response()->json(['error'=>'Recurso não encontrado.'],404);
         }
 
         $descricao = $statusDaIndicacao->descricao;
@@ -70,7 +70,7 @@ abstract class BaseController extends Controller
 
         if ($descricao[0] ===  '3'){
             return response()->json([
-                'erro' => 'Atualização não permitida. Valor máximo já alcançado.'
+                'error' => 'Atualização não permitida. Valor máximo já alcançado.'
             ], 405
             );
         }
@@ -86,14 +86,17 @@ abstract class BaseController extends Controller
         $qtdRecursosRemovidos = Indicacao::destroy($id);
         if ($qtdRecursosRemovidos === 0){
             return response()->json([
-                'erro'=> "Recurso não encontrado."
+                "error" => "Recurso não encontrado."
             ], 404 );
         }
 
         //Caso em que apagamos a linha na tabela  indicacao  com sucesso.
         //Apagando a linha correspondente na tabela  statusDasIndicacoes.
         StatusDaIndicacao::destroy($id);
-        return response()->json('',204);
+
+        return response()->json([
+            "message" => "Indicação deletada com sucesso."
+        ],204);
     }
 
 }
