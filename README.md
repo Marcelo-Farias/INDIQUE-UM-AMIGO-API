@@ -1,24 +1,45 @@
-# Lumen PHP Framework
+# INDIQUE-UM-AMIGO-Marcelo-Farias
+API RESTful do projeto solicitado no processo de seleção para programador back-end da UNISUAM em 2021.
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://img.shields.io/packagist/l/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
+## Detalhes do projeto:
+O SGBD utilizado foi o PostgreSQL. A implementação da API RESTful foi feita com o Lumen(Laravel). E o front-end foi feito em um projeto separado usando o framework Angular.
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+## Instruções:
+Criar um banco de dados (PostgreSQL) chamado INDIQUE-UM-AMIGO. Usando as seguintes informações:
 
-## Official Documentation
+ 	Host: localhost
+ 	Port: 5432
+ 	Database_name: INDIQUE-UM-AMIGO
+ 	User: postgres
+ 	Password: UNISUAM2021
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+O projeto requer a instalação do:
+ 	PostgreSQL
+ 	Composer
+ 	NodeJS
+	 Angular/CLI
+ 
+Após instalar o NodeJS, podemos instalar o Angular/CLI com o seguinte comando no terminal:
+ 
+	 npm install -g @angular/cli
+ 
+## Fazendo o download das dependências dos projetos:
+Após as instalações. Executar os comandos no terminal:
+	
+ 	Para a API Rest (Laravel/Lumen), no diretório do projeto:
+		1) composer install
+		2) php artisan migrate:install
+		2) php -S localhost:8000 -t public
 
-## Contributing
+	Para a SPA (Angular), no diretório do projeto:
+		1) npm install
+		2) ng serve
+  
+OBS: A porta para a API deve ser 8000. E a porta para a SPA deve ser 4200.
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Link:
+O link para a página do projeto é:
 
-## Security Vulnerabilities
+http://localhost:4200
+ 
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
