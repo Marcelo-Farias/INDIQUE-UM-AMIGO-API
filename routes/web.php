@@ -13,6 +13,7 @@
 |
 */
 
+
 $router->get('/', function () {
     return \App\Models\Indicacao::all();
 });
@@ -26,7 +27,7 @@ $router->group(['prefix'=>'/api'], function () use ($router){
         //Buscar um único elemento da tabela  statusDasIndicacoes.
         $router->get('/{id}', 'StatusDasIndicacoesController@show');
         //Alterar uma linha da tabela  statusDasIndicacoes.
-        $router->put('/{id}', 'StatusDasIndicacoesController@update');
+        $router->put('/{id}', 'StatusDasIndicacoesController@update' );
         //Deletar uma linha da tabela  statusDasIndicacoes. Implica também deletar um elemento na tabela  indicacoes.
         $router->delete('/{id}', 'StatusDasIndicacoesController@destroy');
 
@@ -36,15 +37,17 @@ $router->group(['prefix'=>'/api'], function () use ($router){
 
         //Exibir todos os elementos da tabela  indicacoes.
         $router->get('', 'IndicacoesController@index');
-        //Criar um elemento na tabela  indicacoes. Implica também criar um elemento na tabela  statusDasIndicacoes.
-        $router->post('', 'IndicacoesController@store');
         //Buscar um único elemento da tabela  indicacoes.
         $router->get('/{id}', 'IndicacoesController@show');
+        //Criar um elemento na tabela  indicacoes. Implica também criar um elemento na tabela  statusDasIndicacoes.
+        $router->post('', 'IndicacoesController@store');
         //Alterar uma linha da tabela  indicacoes.
         $router->put('/{id}', 'IndicacoesController@update');
         //Deletar uma linha da tabela  indicacoes. Implica também deletar um elemento na tabela  statusDasIndicacoes.
         $router->delete('/{id}', 'IndicacoesController@destroy');
 
+        //Buscar o status de uma indicação.
+        $router->get('/{id}/status','IndicacoesController@buscarStatus');
     });
 
 });

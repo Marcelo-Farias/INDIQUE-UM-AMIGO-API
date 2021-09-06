@@ -6,8 +6,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Indicacao;
 use App\Models\StatusDaIndicacao;
+use Illuminate\Http\Request;
 
-abstract class BaseController
+abstract class BaseController extends Controller
 {
     protected string $classe;
 
@@ -16,9 +17,9 @@ abstract class BaseController
      * Esse método retorna uma coleção (\Illuminate\Database\Eloquent\Collection)
      * com todos os ítens adicionados na tabela correspondente.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return $this->classe::all();
+        return $this->classe::paginate($request->per_page);
     }
 
     /**
@@ -94,6 +95,5 @@ abstract class BaseController
         StatusDaIndicacao::destroy($id);
         return response()->json('',204);
     }
-
 
 }
